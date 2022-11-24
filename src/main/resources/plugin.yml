@@ -1,0 +1,7 @@
+name: Security
+version: '${project.version}'
+main: javajava.security.Security
+api-version: 1.19
+commands:
+  password:
+    aliases: pass
