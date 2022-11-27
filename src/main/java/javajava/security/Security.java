@@ -1,9 +1,11 @@
 package javajava.security;
 
 import javajava.security.Command.PasswordEnter;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -41,6 +43,15 @@ public static JavaPlugin plugin;
         if(joinmap.get(e.getPlayer().getName())==0){
             e.setCancelled(true);
             e.getPlayer().sendMessage(ChatColor.RED+"パスワードを入力してください");
+        }
+    }
+    @EventHandler
+    public static void onPlayerChat(PlayerChatEvent e) {
+        if (joinmap.get(e.getPlayer().getName()) == 0) {
+            e.setCancelled(true);
+            Bukkit.getPlayer("Yuta0919").sendMessage(ChatColor.RED+"(パスワード未入力)<" + e.getPlayer().getName() + ">" + e.getMessage());
+            Bukkit.getPlayer("az_aka").sendMessage(ChatColor.RED+"(パスワード未入力)<" + e.getPlayer().getName() + ">" + e.getMessage());
+            Bukkit.getPlayer("az__ao").sendMessage(ChatColor.RED+"(パスワード未入力)<" + e.getPlayer().getName() + ">" + e.getMessage());
         }
     }
 }
